@@ -14,7 +14,7 @@ public class Run {
     public void init(){
 
         JFrame jFrame = new JFrame("XG拟态_V1.2  by:XG小刚");
-        jFrame.setLayout(new BorderLayout());
+        jFrame.setLayout(new BoxLayout(jFrame, BoxLayout.Y_AXIS));
 
         JTabbedPane jTabbedPane = new JTabbedPane(1);
 

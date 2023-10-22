@@ -25,7 +25,6 @@ public class PhpPanel {
         phpJPanel.setLayout(new BoxLayout(phpJPanel,1));
 
         selectJpanel =new JPanel(new GridLayout(1,3,10,10));
-        //selectJpanel.setSize(600,100);
         JPanel JPanel1 = new JPanel();
         status = new JComboBox();
         status.addItem("未选择");
@@ -80,7 +79,7 @@ public class PhpPanel {
                         txtArea.setText(phpdemo6[1]);
                         break;
                     default:
-                        encodeArea.setText("请选择免杀模板");
+                        encodeArea.setText("请选择php免杀模板");
                 }
 
             }
@@ -90,13 +89,11 @@ public class PhpPanel {
         selectJpanel.add(JPanel2);
         selectJpanel.add(JPanel3);
 
-
         JPanel sourcecodeJpanel = new JPanel(new BorderLayout());
         sourcecodeArea = new JTextArea();
-        sourcecodeArea.setText("php源码：冰蝎、哥斯拉或其他webshell源码");
+        sourcecodeArea.setText("<?php echo 'testdemo';?>\n//php源码：一句话、蚁剑、冰蝎、哥斯拉或其他webshell源码");
         JScrollPane scrollPane1 = new JScrollPane(sourcecodeArea);
         sourcecodeJpanel.add(scrollPane1);
-
 
         JPanel encodeJpanel = new JPanel(new BorderLayout());
         encodeArea = new JTextArea();
@@ -106,15 +103,27 @@ public class PhpPanel {
 
         JPanel txtJpanel = new JPanel(new BorderLayout());
         txtArea = new JTextArea();
-        txtArea.setText("免杀webshell使用方法");
+        txtArea.setText("免杀webshell注意事项");
         JScrollPane scrollPane3 = new JScrollPane(txtArea);
         txtJpanel.add(scrollPane3);
 
+        JPanel splitJpanel = new JPanel(new BorderLayout());
+        JSplitPane splitPane1=new JSplitPane(JSplitPane.VERTICAL_SPLIT,sourcecodeJpanel,encodeJpanel);
+        splitPane1.setDividerSize(5);
+        splitPane1.setContinuousLayout(true);
+        splitPane1.setDividerLocation(250);
+        splitPane1.setEnabled(true);
+
+        JSplitPane splitPane2=new JSplitPane(JSplitPane.VERTICAL_SPLIT,splitPane1,txtJpanel);
+        splitPane2.setDividerSize(5);
+        splitPane2.setContinuousLayout(true);
+        splitPane2.setDividerLocation(500);
+        splitPane2.setEnabled(true);
+        splitJpanel.add(splitPane2);
+
 
         phpJPanel.add(selectJpanel);
-        phpJPanel.add(sourcecodeJpanel);
-        phpJPanel.add(encodeJpanel);
-        phpJPanel.add(txtJpanel);
+        phpJPanel.add(splitJpanel);
         return phpJPanel;
     }
 }
