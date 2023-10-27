@@ -27,6 +27,19 @@ public class JspPanel {
         status = new JComboBox();
         status.addItem("未选择");
         status.addItem("jsp_demo1");
+
+        status.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                switch ((String)status.getSelectedItem()) {
+                    case "jsp_demo1":
+                        txtArea.setText(JspEncodeDemo1.GetDemotxt());
+                        break;
+                    default:
+                        encodeArea.setText("请选择jsp免杀模板");
+                }
+            }
+        });
         jPanel1.add(new JLabel("选择免杀模板"));
         jPanel1.add(status);
 
@@ -42,14 +55,13 @@ public class JspPanel {
             public void actionPerformed(ActionEvent e) {
                 switch ((String)status.getSelectedItem()) {
                     case "jsp_demo1":
-                        String[] jspdemo1= new String[0];
+                        String jspdemo1= "";
                         try {
                             jspdemo1 = new JspEncodeDemo1((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
                         } catch (Exception ex) {
                             ex.printStackTrace();
                         }
-                        encodeArea.setText(jspdemo1[0]);
-                        txtArea.setText(jspdemo1[1]);
+                        encodeArea.setText(jspdemo1);
                         break;
                     default:
                         encodeArea.setText("请选择jsp免杀模板");

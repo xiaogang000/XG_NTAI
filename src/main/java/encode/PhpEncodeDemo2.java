@@ -1,9 +1,6 @@
 package encode;
 
 import application.RandomString;
-
-import java.io.File;
-import java.io.FileInputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Random;
@@ -13,7 +10,6 @@ public class PhpEncodeDemo2 {
     String key;
     String sourcecode;
     String encode;
-    String demo2txt;
 
     public PhpEncodeDemo2() {
     }
@@ -23,7 +19,19 @@ public class PhpEncodeDemo2 {
         this.key = key;
         this.sourcecode = sourcecode;
     }
-    public String[] Run(){
+
+    public static String GetDemotxt(){
+
+        return "/*\n" +
+                " * By: XG小刚\n" +
+                " * Time: 2023-09-03_demo2\n" +
+                " * Bypass: 牧云、伏魔、安全狗、D盾、河马本地\n" +
+                " * 传参: /xxxx.php?file=QzpccGhwU3R1ZHlcUEhQVHV0b3JpYWxcV1dXXDEyMy5waHA=\n" +
+                " * file参数为响应头中serve值\n" +
+                " */";
+    }
+
+    public String Run(){
 
         if(!sourcecode.isEmpty()){
             try {
@@ -47,20 +55,12 @@ public class PhpEncodeDemo2 {
                 encode = encode.replace("$key$",this.key);
                 encode = encode.replace("$base64code$",s);
 
-                demo2txt =
-                        "/*\n" +
-                        " * By: XG小刚\n" +
-                        " * Time: 2023-09-03_demo2\n" +
-                        " * Bypass: 牧云、伏魔、安全狗、D盾、河马本地\n" +
-                        " * 传参: /xxxx.php?file=QzpccGhwU3R1ZHlcUEhQVHV0b3JpYWxcV1dXXDEyMy5waHA=\n" +
-                        " * file参数为响应头中serve值\n" +
-                        " */";
-                return new String[]{this.encode,this.demo2txt};
+                return this.encode;
             }catch (Exception e){
-                return new String[]{"加密失败",this.demo2txt};
+                return "加密失败";
             }
         }else {
-            return new String[]{"请输入冰蝎、哥斯拉php源码", this.demo2txt};
+            return "请输入冰蝎、哥斯拉PHP源码";
         }
     }
 }

