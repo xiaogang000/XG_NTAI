@@ -12,6 +12,7 @@
 
 ```
 java -jar XG_NTAI.jar
+#jsp免杀需要JAVA8
 ```
 
 1、选择PHP、JSP页面，选择免杀模板，加密密钥可自定义
