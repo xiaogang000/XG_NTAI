@@ -1,16 +1,18 @@
 package application;
 
 import encode.*;
+import pretend.HtmlPretend;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class PhpPanel {
-
     JPanel phpJPanel;
     JPanel selectJpanel;
     JComboBox status;
+    JComboBox pretend;
+    public static JTextField pretendJTextField;
     JTextField jTextField;
     JTextArea sourcecodeArea;
     JTextArea encodeArea;
@@ -24,7 +26,7 @@ public class PhpPanel {
         phpJPanel =new JPanel();
         phpJPanel.setLayout(new BoxLayout(phpJPanel,1));
 
-        selectJpanel =new JPanel(new GridLayout(1,3,10,10));
+        selectJpanel =new JPanel(new GridLayout(1,4,5,5));
         JPanel JPanel1 = new JPanel();
         status = new JComboBox();
         status.addItem("未选择");
@@ -61,7 +63,7 @@ public class PhpPanel {
                 }
             }
         });
-        JPanel1.add(new JLabel("选择免杀模板"));
+        JPanel1.add(new JLabel("免杀模板"));
         JPanel1.add(status);
 
         JPanel JPanel2 =new JPanel();
@@ -69,47 +71,71 @@ public class PhpPanel {
         JPanel2.add(new JLabel("加密密钥"));
         JPanel2.add(jTextField);
 
-        JPanel JPanel3 =new JPanel();
+        JPanel pretendJPanel = new JPanel();
+        pretend = new JComboBox();
+        pretend.addItem("未选择");
+        pretend.addItem("AliyunWAF");
+        pretend.addItem("T-mshenWAF");
+        pretend.addItem("T-secWAF");
+        pretend.addItem("AnyuWAF");
+        pretend.addItem("SafeLineWAF");
+        pretend.addItem("SafedogWAF");
+        pretend.addItem("WangsuWAF");
+        pretend.addItem("custom");
+        pretendJTextField = new JTextField("Base64",5);
+        pretendJPanel.add(new JLabel("模拟页面"));
+        pretendJPanel.add(pretend);
+        pretendJPanel.add(pretendJTextField);
+
+        //JPanel JPanel3 =new JPanel();
         Button button = new Button("免杀");
         button.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                String[] phpdemo =null;
+
                 switch ((String)status.getSelectedItem()) {
                     case "php_demo1":
-                        String phpdemo1= new PhpEncodeDemo1((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
-                        encodeArea.setText(phpdemo1);
+                        phpdemo = new PhpEncodeDemo1((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
+                        phpdemo[0] += new HtmlPretend().GetPhp((String) pretend.getSelectedItem());
                         break;
                     case "php_demo2":
-                        String phpdemo2= new PhpEncodeDemo2((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
-                        encodeArea.setText(phpdemo2);
+                        phpdemo = new PhpEncodeDemo2((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
+                        phpdemo[0] += new HtmlPretend().GetPhp((String) pretend.getSelectedItem());
                         break;
                     case "php_demo3":
-                        String[] phpdemo3= new PhpEncodeDemo3((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
-                        encodeArea.setText(phpdemo3[0]);
-                        txtArea.setText(phpdemo3[1]);
+                        phpdemo= new PhpEncodeDemo3((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
+                        phpdemo[0] += new HtmlPretend().GetPhp((String) pretend.getSelectedItem());
+                        txtArea.setText(phpdemo[1]);
                         break;
                     case "php_demo4":
-                        String phpdemo4= new PhpEncodeDemo4((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
-                        encodeArea.setText(phpdemo4);
+                        phpdemo= new PhpEncodeDemo4((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
+                        phpdemo[0] += new HtmlPretend().GetPhp((String) pretend.getSelectedItem());
                         break;
                     case "php_demo5":
-                        String phpdemo5= new PhpEncodeDemo5((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
-                        encodeArea.setText(phpdemo5);
+                        phpdemo= new PhpEncodeDemo5((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
+                        phpdemo[0] += new HtmlPretend().GetPhp((String) pretend.getSelectedItem());
                         break;
                     case "php_demo6":
-                        String phpdemo6= new PhpEncodeDemo6((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
-                        encodeArea.setText(phpdemo6);
+                        phpdemo= new PhpEncodeDemo6((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
+                        phpdemo[0] += new HtmlPretend().GetPhp((String) pretend.getSelectedItem());
                         break;
                     default:
-                        encodeArea.setText("请选择php免杀模板");
+                        phpdemo = new String[]{"请选择php免杀模板",""};
                 }
-
+                encodeArea.setText(phpdemo[0]);
+                if(pretend.getSelectedItem().equals("custom")&&pretendJTextField.getText().equals("Base64")){
+                    encodeArea.setText("请输入自定义页面Base64编码");
+                }
             }
         });
-        JPanel3.add(button);
+        //JPanel3.add(button);
+
         selectJpanel.add(JPanel1);
         selectJpanel.add(JPanel2);
-        selectJpanel.add(JPanel3);
+        selectJpanel.add(pretendJPanel);
+        selectJpanel.add(button);
 
         JPanel sourcecodeJpanel = new JPanel(new BorderLayout());
         sourcecodeArea = new JTextArea();

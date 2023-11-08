@@ -6,7 +6,7 @@
 
     <groupId>org.example</groupId>
     <artifactId>XG_NTAI</artifactId>
-    <version>(20231016-V1.2)</version>
+    <version>(20231108-V1.3)</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

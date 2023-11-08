@@ -12,7 +12,7 @@ public class Run {
 
     public void init(){
 
-        JFrame jFrame = new JFrame("XG拟态_V1.2  by:XG小刚");
+        JFrame jFrame = new JFrame("XG拟态_V1.3  by:XG小刚");
         jFrame.setLayout(new BoxLayout(jFrame, BoxLayout.Y_AXIS));
 
         JTabbedPane jTabbedPane = new JTabbedPane(1);
@@ -26,7 +26,7 @@ public class Run {
 
         jFrame.setContentPane(jTabbedPane);
 
-        jFrame.setSize(1000,800);
+        jFrame.setSize(1200,800);
         jFrame.setVisible(true);
         jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }

