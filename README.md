@@ -73,10 +73,10 @@ jsp免杀500等问题，受Tomcat版本、Java版本影响
 使用IDEA修改pom.xml文件中版本为需要版本，然后更新maven后再运行程序即可
 
 ```
-tomcat7.0.x/8.x 		jdk6-8 : 修改pom.xml文件版本后，使用jsp_demo1、jsp_demo6(暂不公开)
-tomcat8.x/9.0.x 		jdk8-21: 使用jsp_demo2、jsp_demo5(暂不公开)
-tomcat10.0.x 		 		jdk8-21: 修改pom.xml文本版本后,使用jsp_demo2、jsp_demo3、jsp_demo4、jsp_demo5(暂不公开)
-tomcat10.1.x 				jdk8-21: 修改pom.xml文本版本后,使用jsp_demo5(暂不公开)
+tomcat7.0.x/8.x	jdk6-8:	修改pom.xml文件版本后，使用jsp_demo1、jsp_demo6(暂不公开)
+tomcat8.x/9.0.x	jdk8-21:	使用jsp_demo2、jsp_demo5(暂不公开)
+tomcat10.0.x	jdk8-21:	修改pom.xml文本版本后,使用jsp_demo2、jsp_demo3、jsp_demo4、jsp_demo5(暂不公开)
+tomcat10.1.x	jdk8-21:	修改pom.xml文本版本后,使用jsp_demo5(暂不公开)
 ```
 
 ![image-20231124103726633](img/image-20231124103726633.png)
