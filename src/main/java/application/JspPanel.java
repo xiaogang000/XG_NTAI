@@ -31,6 +31,8 @@ public class JspPanel {
         status.addItem("未选择");
         status.addItem("jsp_demo1");
         status.addItem("jsp_demo2");
+        status.addItem("jsp_demo3");
+        status.addItem("jsp_demo4");
 
         status.addActionListener(new AbstractAction() {
             @Override
@@ -41,6 +43,12 @@ public class JspPanel {
                         break;
                     case "jsp_demo2":
                         txtArea.setText(JspEncodeDemo2.GetDemotxt());
+                        break;
+                    case "jsp_demo3":
+                        txtArea.setText(JspEncodeDemo3.GetDemotxt());
+                        break;
+                    case "jsp_demo4":
+                        txtArea.setText(JspEncodeDemo4.GetDemotxt());
                         break;
                     default:
                         encodeArea.setText("请选择jsp免杀模板");
@@ -93,6 +101,24 @@ public class JspPanel {
                             ex.printStackTrace();
                         }
                         jspdemo[0] += new HtmlPretend().GetJsp9((String) pretend.getSelectedItem());
+                        break;
+                    case "jsp_demo3":
+                        try {
+                            jspdemo = new JspEncodeDemo3((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
+                        jspdemo[0] += new HtmlPretend().GetJsp9((String) pretend.getSelectedItem());
+                        txtArea.setText(jspdemo[1]);
+                        break;
+                    case "jsp_demo4":
+                        try {
+                            jspdemo = new JspEncodeDemo4((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
+                        jspdemo[0] += new HtmlPretend().GetJsp9((String) pretend.getSelectedItem());
+                        txtArea.setText(jspdemo[1]);
                         break;
                     default:
                         jspdemo = new String[]{"请选择jsp免杀模板",""};

