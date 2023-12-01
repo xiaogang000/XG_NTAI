@@ -43,6 +43,11 @@ public class textPanel {
                 "XG_NTAI_V1.4\r\n" +
                 "新增配置文件: 将XG_NTAI.properties放在同目录下运行\r\n"+
                 "JSP模板: 修改jsp_demo1, 针对阿里云新增jsp_demo3、jsp_demo4(需配置文件)\r\n" +
+                "######################################\r\n\r\n"+
+                "(20231201):\r\n" +
+                "XG_NTAI_V1.5\r\n" +
+                "优化php的waf页面中文乱码\r\n"+
+                "JSP模板: 新增jsp_demo5(需配置文件)、jsp_demo6(需配置文件)、jsp_demo7\r\n" +
                 "######################################\r\n\r\n";
         JTextArea textJTextArea = new JTextArea(text);
         textJPanel.add(textJTextArea);

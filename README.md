@@ -1,6 +1,8 @@
 # XG拟态
 
 >  公众号 : XG小刚
+> 
+> 项目地址：https://github.com/xiaogang000/XG_NTAI
 
 一键免杀冰蝎、哥斯拉等webshell的php、jsp木马文件。(注：不支持流量混淆)
 
@@ -12,11 +14,21 @@
 
 ## 使用方法
 
-目前搭载6种php模板、4种jsp模板、7种waf页面（注：jsp免杀最好JAVA8运行）
+目前搭载6种php模板、7种jsp模板、7种waf页面（注：jsp免杀最好JAVA8运行）
 
 ```
 java -jar XG_NTAI.jar
 ```
+
+或者
+
+```
+git clone https://github.com/xiaogang000/XG_NTAI.git
+```
+
+使用IEDA配置好java8运行Run.java即可
+
+![image-20231201143254745](img/image-20231201143254745.png)
 
 
 
@@ -73,10 +85,10 @@ jsp免杀500等问题，受Tomcat版本、Java版本影响
 使用IDEA修改pom.xml文件中版本为需要版本，然后更新maven后再运行程序即可
 
 ```
-tomcat7.0.x/8.x	jdk6-8:	修改pom.xml文件版本后，使用jsp_demo1、jsp_demo6(暂不公开)
-tomcat8.x/9.0.x	jdk8-21:	使用jsp_demo2、jsp_demo5(暂不公开)
-tomcat10.0.x	jdk8-21:	修改pom.xml文本版本后,使用jsp_demo2、jsp_demo3、jsp_demo4、jsp_demo5(暂不公开)
-tomcat10.1.x	jdk8-21:	修改pom.xml文本版本后,使用jsp_demo5(暂不公开)
+tomcat7.0.x/8.x	jdk6-8:	修改pom.xml文件版本后，使用jsp_demo1、jsp_demo6、jsp_demo7
+tomcat8.x/9.0.x	jdk8-21:	使用jsp_demo2、jsp_demo5、jsp_demo7
+tomcat10.0.x	jdk8-21:	修改pom.xml文本版本后,使用jsp_demo2、jsp_demo3、jsp_demo4、jsp_demo5、jsp_demo7
+tomcat10.1.x	jdk8-21:	修改pom.xml文本版本后,使用jsp_demo5、jsp_demo7
 ```
 
 ![image-20231124103726633](img/image-20231124103726633.png)
@@ -141,4 +153,14 @@ JSP模板: 修改jsp_demo1, 针对阿里云新增jsp_demo3、jsp_demo4(需配置
 
 ######################################
 
-![image-20231124122037496](img/image-20231124122037496.png)
+(20231201):
+
+XG_NTAI_V1.5
+
+优化php的waf页面中文乱码
+
+JSP模板: 新增jsp_demo5(需配置文件)、jsp_demo6(需配置文件)、jsp_demo7
+
+######################################
+
+![image-20231201143843020](img/image-20231201143843020.png)

