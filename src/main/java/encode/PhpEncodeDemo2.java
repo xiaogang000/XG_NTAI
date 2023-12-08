@@ -7,21 +7,20 @@ import java.util.Random;
 
 public class PhpEncodeDemo2 {
     String tamplate;
-    String key;
     String sourcecode;
-    String encode;
+    String key;
+    String MScode;
 
     public PhpEncodeDemo2() {
     }
 
-    public PhpEncodeDemo2(String tamplate, String key, String sourcecode) {
+    public PhpEncodeDemo2(String tamplate, String sourcecode, String key) {
         this.tamplate = tamplate;
-        this.key = key;
         this.sourcecode = sourcecode;
+        this.key = key;
     }
 
-    public static String GetDemotxt(){
-
+    public static String GetDescribe(){
         return "/*\n" +
                 " * By: XG小刚\n" +
                 " * Time: 2023-09-03_demo2\n" +
@@ -37,25 +36,26 @@ public class PhpEncodeDemo2 {
             try {
                 sourcecode = sourcecode.replace("<?php", "").replace("?>", "").trim();
                 byte[] bytes = sourcecode.getBytes(StandardCharsets.UTF_8);
-                String s = Base64.getEncoder().encodeToString(Base64.getEncoder().encode(bytes));
+
+                String base64code = Base64.getEncoder().encodeToString(Base64.getEncoder().encode(bytes));
                 if(this.key.equals("默认随机")){
                     this.key = RandomString.getRString(8);
                 }
 
-                StringBuilder stringBuilder = new StringBuilder(s);
+                StringBuilder stringBuilder = new StringBuilder(base64code);
                 int aa = new Random().nextInt((stringBuilder.length())/2)+1;
                 for (int i = aa;  i > 0; i = new Random().nextInt(i)) {
                     stringBuilder.insert(i,this.key);
                 }
-                s = stringBuilder.toString();
+                base64code = stringBuilder.toString();
 
-                String demo2 = "PD9waHAgLyoka2V5JCovCmhlYWRlcignU2VydmU6Jy5iYXNlNjRfZW5jb2RlKF9fRklMRV9fKSk7CmhlYWRlcignQ29udGVudC1UeXBlOnRleHQvaHRtbDtjaGFyc2V0PXV0Zi04Jyk7CiRwYXNzd29yZD0nJGJhc2U2NGNvZGUkJzsKb2Jfc3RhcnQoKTsKcmVhZGZpbGUoYmFzZTY0X2RlY29kZSgkX0dFVFsnZmlsZSddKSk7CiRmaWxlID0gb2JfZ2V0X2NvbnRlbnRzKCk7Cm9iX2VuZF9jbGVhbigpOwokdXNlcm5hbWUgPSBzdWJzdHIoJGZpbGUsOCw4KTsKJHRlbXBsYXRlX3NvdXJjZSA9IHN0cl9yZXBsYWNlKCR1c2VybmFtZSwnJywkcGFzc3dvcmQpOwokdGVtcGxhdGVfc291cmNlID0gYmFzZTY0X2RlY29kZSgkdGVtcGxhdGVfc291cmNlKTsKJHRlbXBsYXRlX3NvdXJjZSA9IGJhc2U2NF9kZWNvZGUoJHRlbXBsYXRlX3NvdXJjZSk7CiRrZXkgPSAndGVtcGxhdGVfc291cmNlJzsKJGFlc19kZWNvZGVbMV09JCRrZXk7CkBldmFsKCRhZXNfZGVjb2RlWzFdKTs=";
-                encode = new String(Base64.getDecoder().decode(demo2));
+                String demo = "PD9waHAgLyoka2V5JCovCmhlYWRlcignU2VydmU6Jy5iYXNlNjRfZW5jb2RlKF9fRklMRV9fKSk7CiRwYXNzd29yZD0nJGJhc2U2NGNvZGUkJzsKb2Jfc3RhcnQoKTsKcmVhZGZpbGUoYmFzZTY0X2RlY29kZSgkX0dFVFsnZmlsZSddKSk7CiRmaWxlID0gb2JfZ2V0X2NvbnRlbnRzKCk7Cm9iX2VuZF9jbGVhbigpOwokdXNlcm5hbWUgPSBzdWJzdHIoJGZpbGUsOCw4KTsKJHRlbXBsYXRlX3NvdXJjZSA9IHN0cl9yZXBsYWNlKCR1c2VybmFtZSwnJywkcGFzc3dvcmQpOwokdGVtcGxhdGVfc291cmNlID0gYmFzZTY0X2RlY29kZSgkdGVtcGxhdGVfc291cmNlKTsKJHRlbXBsYXRlX3NvdXJjZSA9IGJhc2U2NF9kZWNvZGUoJHRlbXBsYXRlX3NvdXJjZSk7CiRrZXkgPSAndGVtcGxhdGVfc291cmNlJzsKJGFlc19kZWNvZGVbMV09JCRrZXk7CkBldmFsKCRhZXNfZGVjb2RlWzFdKTs=";
+                MScode = new String(Base64.getDecoder().decode(demo));
 
-                encode = encode.replace("$key$",this.key);
-                encode = encode.replace("$base64code$",s);
+                MScode = MScode.replace("$key$",this.key);
+                MScode = MScode.replace("$base64code$",base64code);
 
-                return new String[]{this.encode,""};
+                return new String[]{this.MScode,""};
             }catch (Exception e){
                 return new String[]{"加密失败",""};
             }

