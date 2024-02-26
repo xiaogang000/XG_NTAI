@@ -16,7 +16,7 @@
 
 ## 静态免杀
 
-目前搭载7种php模板、7种jsp模板、7种waf页面、2种流量加密方式（注：jsp免杀最好JAVA8运行）
+目前搭载8种php模板、7种jsp模板、7种waf页面、2种流量加密方式（注：jsp免杀最好JAVA8运行）
 
 ```
 git clone https://github.com/xiaogang000/XG_NTAI.git
@@ -35,9 +35,9 @@ java -jar XG_NTAI.jar
 
 4、部分免杀马在第三文本框有使用注意事项
 
-![image-20231220230202083](img/image-20231220230202083.png)
+![image-20240226215737622](img/image-20240226215737622.png)
 
-![image-20231220230233555](img/image-20231220230233555.png)
+![image-20240226215753187](img/image-20240226215753187.png)
 
 
 
@@ -159,14 +159,14 @@ V2.0新增流量混淆功能
 
 ## 更新记录
 
-(20231220): XG_NTAI_V2.0
+(20240226): XG_NTAI_V2.1
 
-新增JSP免杀选择tomcat版本功能
+PHP模板: 新增phpdemo8(需配置文件)
 
-新增冰蝎流量混淆功能: Disguise
+更新phpdemo2、5、6、7模板
 
-Disguise: 2base64、AesBase64
+优化GUI使用
 
 ######################################
 
-![image-20231220225802011](img/image-20231220225802011.png)
+![image-20240226215817234](img/image-20240226215817234.png)
