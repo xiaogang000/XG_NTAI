@@ -16,7 +16,7 @@
 
 ## 静态免杀
 
-目前搭载8种php模板、7种jsp模板、7种waf页面、2种流量加密方式（注：jsp免杀最好JAVA8运行）
+目前搭载8种php模板、8种jsp模板、5种jspx模板、7种waf页面、2种流量加密方式
 
 ```
 git clone https://github.com/xiaogang000/XG_NTAI.git
@@ -27,7 +27,7 @@ java -jar XG_NTAI.jar
 
 ### 使用方法
 
-1、选择PHP、JSP页面，选择免杀模板，加密密钥可自定义(不重要)
+1、选择PHP、JSP、JSPX页面，选择免杀模板，加密密钥可自定义(不重要)
 
 2、源码区替换为冰蝎、哥斯拉、或其他恶意代码的php、jsp源码
 
@@ -35,9 +35,9 @@ java -jar XG_NTAI.jar
 
 4、部分免杀马在第三文本框有使用注意事项
 
-![image-20240226215737622](img/image-20240226215737622.png)
+![image-20240430144748795](img/image-20240430144748795.png)
 
-![image-20240226215753187](img/image-20240226215753187.png)
+![image-20240430144812051](img/image-20240430144812051.png)
 
 
 
@@ -159,14 +159,14 @@ V2.0新增流量混淆功能
 
 ## 更新记录
 
-(20240226): XG_NTAI_V2.1
+(20240430): XG_NTAI_V2.2
 
-PHP模板: 新增phpdemo8(需配置文件)
+JSP模板: 新增jspxdemo8(需配置文件)
 
-更新phpdemo2、5、6、7模板
+JSPX模板: 新增jspxdemo1、jspxdemo2、jspxdemo5、jspxdemo6、jspxdemo8
 
-优化GUI使用
+更新jspdemo1、2模板
 
 ######################################
 
-![image-20240226215817234](img/image-20240226215817234.png)
+![image-20240430144952087](img/image-20240430144952087.png)
