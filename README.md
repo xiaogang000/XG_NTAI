@@ -16,7 +16,7 @@
 
 ## 静态免杀
 
-目前搭载1种ASP、8种php模板、8种jsp模板、5种jspx模板、7种waf页面、2种流量加密方式
+目前搭载1种ASP、4种php模板、3种jsp模板、3种jspx模板、7种waf页面、2种流量加密方式
 
 ```
 git clone https://github.com/xiaogang000/XG_NTAI.git
@@ -35,15 +35,15 @@ java -jar XG_NTAI.jar
 
 4、部分免杀马在第三文本框有使用注意事项
 
-![image-20240801165810596](./img/image-20240801165810596.png)
+![image-20250405003348227](./img/image-20250405003348227.png)
 
 
 
 ### 模拟页面
 
-可在生成时添加模拟页面、目前支持7种waf页面（asp暂不支持）
+可在生成时添加模拟页面、目前支持7种waf页面
 
-![image-20240801165848844](./img/image-20240801165848844.png)
+![image-20250405003414288](./img/image-20250405003414288.png)
 
 ![image-20231031214827681](img/image-20231031214827681.png)
 
@@ -54,6 +54,10 @@ java -jar XG_NTAI.jar
 
 
 ![image-20231031204252808](img/image-20231031204252808.png)
+
+新增redirect功能，可302跳转到自定义链接
+
+![image-20250405003611334](./img/image-20250405003611334.png)
 
 
 
@@ -75,13 +79,7 @@ jsp免杀500等问题，受Tomcat版本、Java版本影响
 
 JSP页面选择Tomcat版本为需要版本，然后再免杀
 
-```
-tomcat7.0.x/8.x	jdk6-8: 使用jsp_demo1、jsp_demo6、jsp_demo7
-tomcat8.x/9.0.x	jdk8-21: 使用jsp_demo2、jsp_demo5、jsp_demo7
-tomcat10.0.x	jdk8-21: 使用jsp_demo2、jsp_demo3、jsp_demo4、jsp_demo5、jsp_demo7
-```
-
-![image-20231220230331705](img/image-20231220230331705.png)
+![image-20250405003822512](./img/image-20250405003822512.png)
 
 
 
@@ -105,9 +103,7 @@ V2.0新增流量混淆功能（asp暂不支持）
 
 ![image-20231218202254452](img/image-20231218202254452.png)
 
-
-
-### 使用方法
+**使用方法**
 
 1、根据正常业务，找到一个合适的POST数据包(js、json、html、图片、xml等)
 
@@ -155,21 +151,34 @@ V2.0新增流量混淆功能（asp暂不支持）
 
 
 
+## 内存马
+
+将jsp代码转为tomcat的servlet内存马形式访问，目前只支持tomcat环境。
+
+![image-20250405003945069](./img/image-20250405003945069.png)
+
+可转为JSP代码，或其他代码执行漏洞poc
+
+![image-20250405004314002](./img/image-20250405004314002.png)
+
+JSP代码可搭配免杀模板使用。
+
+
+
 ## 更新记录
-(20240801): XG_NTAI_V2.3
 
-ASP模板: 新增aspdemo1(测试)
+(20250405): XG_NTAI_V2.5
+
+新增Memory Injection内存马模块: 可将jsp文件转换为servlet内存马形式访问，比如冰蝎、哥斯拉、suo5、reGeorg等
+
+ASP模板: 支持模拟页面功能
+
+PHP模板: 修复demo6的BUG，删除效果不好的模板
+
+JSP\JSPX模板: 重构模板
+
+流量混淆: 修复冰蝎部分版本流量混乱的BUG
+
+新增模拟302跳转功能
 
 ######################################
-
-(20240430): XG_NTAI_V2.2
-
-JSP模板: 新增jspxdemo8(需配置文件)
-
-JSPX模板: 新增jspxdemo1、jspxdemo2、jspxdemo5、jspxdemo6、jspxdemo8
-
-更新jspdemo1、2模板
-
-######################################
-
-![image-20240801165535088](./img/image-20240801165535088.png)
